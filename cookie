@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Clicker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="cookie-counter">Cookies: 0</div>
+        <button id="cookie-clicker">Click Me!</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+#game-container {
+    text-align: center;
+}
+
+#cookie-clicker {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#cookie-counter {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+let cookies = 0;
+
+// 更新頁面上的cookie計數器
+function updateCounter() {
+    document.getElementById('cookie-counter').innerText = `Cookies: ${cookies}`;
+}
+
+// 每次點擊時增加cookies
+document.getElementById('cookie-clicker').addEventListener('click', () => {
+    cookies += 1;
+    updateCounter();
+});
+
+// 每秒自動增加1 quadrillion cookies
+setInterval(() => {
+    cookies += 1e15; // 1 quadrillion = 1e15
+    updateCounter();
+}, 1000);
+
+// 初始化
+updateCounter();
